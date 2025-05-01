@@ -17,6 +17,23 @@ This repository contains code, data processing scripts, and training routines fo
 
 ---
 
+## Data Access
+
+The processed datasets used in this study, including both *Domainome* and *non-Domainome* variant data, are available via the [Zenodo repository](https://zenodo.org). These datasets contain mutation-level features and target labels used to train and evaluate the models. They were generated using the preprocessing pipeline implemented in this repository (`src/preprocess_data.py`), which fetches raw data from a SQL database and applies transformations such as one-hot encoding, numerical standardization, and embedding flattening.
+
+### Restore the Database
+
+A PostgreSQL backup file of the used dataset is available at [Zenodo repository](https://zenodo.org). It can be restored using `pg_restore` and includes all tables used to train VEFill.
+
+To restore:
+
+```bash
+createdb vefill
+pg_restore -U youruser -d vefill vefill_backup.dump
+```
+
+---
+
 ## Requirements
 
 Install dependencies using:
@@ -42,12 +59,6 @@ The following pretrained models are available in the `models/` directory:
 | Per-protein LOVarO (leave-one-variant-out)      | `models/per_protein_lovaro_models/lgbm_model_gene_{gene_id}_variant_{mutation_id}.pkl` |
 | Reduced feature set (only ESM-1v embeddings and mean DMS used)     | `models/reduced/lgbm_model.pkl` |
 | Zero-shot (without mean DMS)     | `models/zero_shot/lgbm_model.pkl` |
-
----
-
-## Data Access
-
-The processed datasets used in this study, including both *Domainome* and *non-Domainome* variant data, are available via the [Zenodo repository](https://zenodo.org). These datasets contain mutation-level features and target labels used to train and evaluate the models. All data was generated using the preprocessing pipeline included in this repository.
 
 ---
 
