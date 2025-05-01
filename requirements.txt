@@ -1,0 +1,8 @@
+pandas
+numpy
+lightgbm
+scikit-learn
+scipy
+sqlalchemy
+python-decouple
+optuna
