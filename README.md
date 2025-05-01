@@ -31,13 +31,16 @@ pip install -r requirements.txt
 
 The following pretrained models are available in the `models/` directory:
 
-| Model Type                | File Location                                              |
+| Model type                | File location                                              |
 |---------------------------|------------------------------------------------------------|
-| General model             | `models/lgbm_model.pkl`                                    |
-| LOPO per-gene models      | `models/lopo_models/lgbm_model_gene_{gene_id}.pkl`         |
-| Per-protein (random)      | `models/per_protein_random_models/lgbm_model_{gene_id}.pkl`|
-| Per-protein (LOPOSO)      | `models/per_protein_loposo_models/lgbm_model_gene_{gene_id}_pos_{position}.pkl` |
-| Per-protein (LOVARO)      | `models/per_protein_lovaro_models/lgbm_model_gene_{gene_id}_variant_{mutation_id}.pkl` |
+| General             | `models/lgbm_model.pkl`                                    |
+| General (different feature sets) | `models/feature_sets/`                                    |
+| General LOPO (leave-one-protein-out) | `models/lopo_models/lgbm_model_gene_{gene_id}.pkl`         |
+| Per-protein (random split)      | `models/per_protein_random_models/lgbm_model_{gene_id}.pkl`|
+| Per-protein LPosO (stratified by position)      | `models/per_protein_lposo_models/lgbm_model_{gene_id}.pkl` |
+| Per-protein LOPosO (leave-one-position-out)      | `models/per_protein_loposo_models/lgbm_model_gene_{gene_id}_pos_{position}.pkl` |
+| Per-protein LOVarO (leave-one-variant-out)      | `models/per_protein_lovaro_models/lgbm_model_gene_{gene_id}_variant_{mutation_id}.pkl` |
+| Zero-shot (only ESM-1v embeddings and mean DMS used)     | `models/per_protein_lovaro_models/lgbm_model_gene_{gene_id}_variant_{mutation_id}.pkl` |
 
 ---
 
