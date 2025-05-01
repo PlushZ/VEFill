@@ -40,7 +40,8 @@ The following pretrained models are available in the `models/` directory:
 | Per-protein LPosO (stratified by position)      | `models/per_protein_lposo_models/lgbm_model_{gene_id}.pkl` |
 | Per-protein LOPosO (leave-one-position-out)      | `models/per_protein_loposo_models/lgbm_model_gene_{gene_id}_pos_{position}.pkl` |
 | Per-protein LOVarO (leave-one-variant-out)      | `models/per_protein_lovaro_models/lgbm_model_gene_{gene_id}_variant_{mutation_id}.pkl` |
-| Zero-shot (only ESM-1v embeddings and mean DMS used)     | `models/per_protein_lovaro_models/lgbm_model_gene_{gene_id}_variant_{mutation_id}.pkl` |
+| Reduced feature set (only ESM-1v embeddings and mean DMS used)     | `models/reduced/lgbm_model.pkl` |
+| Zero-shot (without mean DMS)     | `models/zero_shot/lgbm_model.pkl` |
 
 ---
 
