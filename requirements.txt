@@ -6,3 +6,6 @@ scipy
 sqlalchemy
 python-decouple
 optuna
+psycopg2-binary
+torch
+fair-esm

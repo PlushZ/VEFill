@@ -20,7 +20,7 @@ def train_lopo():
     # Set up directory for saving models
     model_dir = os.path.join(os.path.dirname(config.MODEL_PATH), "lopo_models")
     os.makedirs(model_dir, exist_ok=True)
-    model_template = os.path.join(model_dir, "lgbm_model_gene_{gene_id}.pkl")
+    model_template = os.path.join(model_dir, "lgbm_model_excluding_gene_{gene_id}.pkl")
 
     for gene_id_out in unique_gene_ids:
         train_mask = gene_ids != gene_id_out

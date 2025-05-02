@@ -9,21 +9,25 @@ This repository contains code, data processing scripts, and training routines fo
 | Folder/File         | Description                                                                 |
 |---------------------|-----------------------------------------------------------------------------|
 | `data/`             | SQL queries, raw and processed datasets                                     |
-| `db/`               | Scripts for populating a local database with mutation features              |
-| `models/`           | Pretrained LightGBM models (see table below)                                |
-| `results/`          | Model output files (metrics, predictions)                                   |
-| `scripts/`          | Entry-point run scripts for preprocessing, training, inference              |
-| `src/`              | Source code: preprocessing, training, evaluation, configuration             |
+| └─ `queries/`       | SQL for data extraction                                                     |
+| `db/`               | Scripts and modules for database schema, ORM, and population                |
+| └─ `orm/`           | SQLAlchemy models and DB session handling                                   |
+| └─ `schema/`        | SQL schema definitions                                                      |
+| └─ `scripts/`       | Scripts to populate DB with computed embeddings                             |
+| `models/`           | Pretrained LightGBM model and best hyperparameters                          |
+| `results/`          | Model outputs: predictions and evaluation metrics                           |
+| `scripts/`          | Entry-point scripts for running preprocessing, training, and inference      |
+| `src/`              | Core logic: training, preprocessing, model utils, evaluation modules        |
 
 ---
 
 ## Data Access
 
-The processed datasets used in this study, including both *Domainome* and *non-Domainome* variant data, are available via the [Zenodo repository](https://zenodo.org). These datasets contain mutation-level features and target labels used to train and evaluate the models. They were generated using the preprocessing pipeline implemented in this repository (`src/preprocess_data.py`), which fetches raw data from a SQL database and applies transformations such as one-hot encoding, numerical standardization, and embedding flattening.
+The processed datasets used in this study, including both *Domainome* and *non-Domainome* data, are available via the [Zenodo repository](https://zenodo.org) in the `data/` directory. These datasets contain mutation-level features and target labels used to train and evaluate the models. They were generated using the preprocessing pipeline implemented in this repository (`src/preprocess_data.py`), which fetches raw data from a SQL database and applies transformations such as one-hot encoding, numerical standardization, and embedding flattening.
 
 ### Restore the Database
 
-A PostgreSQL backup file of the used dataset is available at [Zenodo repository](https://zenodo.org). It can be restored using `pg_restore` and includes all tables used to train VEFill.
+A PostgreSQL backup file of the used dataset is available at [Zenodo repository](https://zenodo.org) in the `db/` directory. It can be restored using `pg_restore` and includes all tables used to train VEFill.
 
 To restore:
 
@@ -36,7 +40,7 @@ pg_restore -U youruser -d vefill vefill_backup.dump
 
 ## Requirements
 
-Install dependencies using:
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -46,19 +50,20 @@ pip install -r requirements.txt
 
 ## Pretrained Models
 
-The following pretrained models are available in the `models/` directory:
+The following pretrained VEFill models are available at [Zenodo repository](https://zenodo.org) in the `models/` directory:
 
 | Model type                | File location                                              |
 |---------------------------|------------------------------------------------------------|
 | General             | `models/lgbm_model.pkl`                                    |
-| General (different feature sets) | `models/feature_sets/`                                    |
-| General LOPO (leave-one-protein-out) | `models/lopo_models/lgbm_model_gene_{gene_id}.pkl`         |
+| General (different feature sets) | `models/feature_sets/lgbm_model_{feature_set}.pkl`                                    |
+| General LOPO (leave-one-protein-out) | `models/lopo_models/lgbm_model_excluding_gene_{gene_id}.pkl`         |
 | Per-protein (random split)      | `models/per_protein_random_models/lgbm_model_{gene_id}.pkl`|
 | Per-protein LPosO (stratified by position)      | `models/per_protein_lposo_models/lgbm_model_{gene_id}.pkl` |
-| Per-protein LOPosO (leave-one-position-out)      | `models/per_protein_loposo_models/lgbm_model_gene_{gene_id}_pos_{position}.pkl` |
-| Per-protein LOVarO (leave-one-variant-out)      | `models/per_protein_lovaro_models/lgbm_model_gene_{gene_id}_variant_{mutation_id}.pkl` |
+| Per-protein LOPosO (leave-one-position-out)      | `models/per_protein_loposo_models/lgbm_model_gene_{gene_id}_excluding_pos_{position}.pkl` |
+| Per-protein LOVarO (leave-one-variant-out)      | `models/per_protein_lovaro_models/lgbm_model_gene_{gene_id}_excluding_variant_{mutation_id}.pkl` |
 | Reduced feature set (only ESM-1v embeddings and mean DMS used)     | `models/reduced/lgbm_model.pkl` |
 | Zero-shot (without mean DMS)     | `models/zero_shot/lgbm_model.pkl` |
+| Pretrained model from FAIR’s ESM-1v repo to generate ESM-1v embeddings for this study  | `models/esm_1v/esm1v_t33_650M_UR90S_1.pt` |
 
 ---
 

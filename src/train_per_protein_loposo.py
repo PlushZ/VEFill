@@ -21,7 +21,7 @@ def train_per_protein_loposo():
     )
     os.makedirs(model_dir, exist_ok=True)
     model_template = os.path.join(
-        model_dir, "lgbm_model_gene_{gene_id}_pos_{position}.pkl"
+        model_dir, "lgbm_model_gene_{gene_id}_excluding_pos_{position}.pkl"
     )
 
     for gene_id in gene_ids:
