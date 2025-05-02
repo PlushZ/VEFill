@@ -8,7 +8,7 @@ This repository contains code, data processing scripts, and training routines fo
 
 | Folder              | Description                                                                 |
 |---------------------|-----------------------------------------------------------------------------|
-| `data/`             | SQL queries, raw and processed datasets                                     |
+| `data/`             | SQL queries, and example of processed dataset                               |
 | └─ `queries/`       | SQL for data extraction                                                     |
 | `db/`               | Scripts and modules for database schema, ORM, and population                |
 | └─ `orm/`           | SQLAlchemy models and DB session handling                                   |
