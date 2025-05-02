@@ -4,9 +4,9 @@ This repository contains code, data processing scripts, and training routines fo
 
 ---
 
-## Directory Structure
+## Directory structure
 
-| Folder/File         | Description                                                                 |
+| Folder              | Description                                                                 |
 |---------------------|-----------------------------------------------------------------------------|
 | `data/`             | SQL queries, raw and processed datasets                                     |
 | └─ `queries/`       | SQL for data extraction                                                     |
@@ -21,11 +21,13 @@ This repository contains code, data processing scripts, and training routines fo
 
 ---
 
-## Data Access
+## Data access
 
 The processed datasets used in this study, including both *Domainome* and *non-Domainome* data, are available via the [Zenodo repository](https://zenodo.org) in the `data/` directory. These datasets contain mutation-level features and target labels used to train and evaluate the models. They were generated using the preprocessing pipeline implemented in this repository (`src/preprocess_data.py`), which fetches raw data from a SQL database and applies transformations such as one-hot encoding, numerical standardization, and embedding flattening.
 
-### Restore the Database
+For demonstration purposes, we also provide a lightweight version of the *Domainome* dataset: `data/example_domainome_preprocessed.csv`. This example file contains a small but representative subset of the full dataset, including 3 distinct `gene_id` values, each with 3 unique `position`s, and 3 mutations per position (total of ~27 rows). It is useful for quickly inspecting the data structure or testing pipeline components without requiring the full heavy dataset.
+
+### Restore the database
 
 A PostgreSQL backup file of the used dataset is available at [Zenodo repository](https://zenodo.org) in the `db/` directory. It can be restored using `pg_restore` and includes all tables used to train VEFill.
 
@@ -48,7 +50,7 @@ pip install -r requirements.txt
 
 ---
 
-## Pretrained Models
+## Pretrained models
 
 The following pretrained VEFill models are available at [Zenodo repository](https://zenodo.org) in the `models/` directory:
 
