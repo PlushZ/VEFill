@@ -65,7 +65,6 @@ The following pretrained VEFill models are available at [Zenodo repository](http
 | Per-protein LOVarO (leave-one-variant-out)      | `models/per_protein_lovaro_models/lgbm_model_gene_{gene_id}_excluding_variant_{mutation_id}.pkl` |
 | Reduced feature set (only ESM-1v embeddings and mean DMS used)     | `models/reduced/lgbm_model.pkl` |
 | Zero-shot (without mean DMS)     | `models/zero_shot/lgbm_model.pkl` |
-| Pretrained model from FAIR’s ESM-1v repo to generate ESM-1v embeddings for this study  | `models/esm_1v/esm1v_t33_650M_UR90S_1.pt` |
 
 ---
 
