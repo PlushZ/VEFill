@@ -59,10 +59,11 @@ The following pretrained VEFill models are available at [Zenodo repository](http
 | General             | `models/lgbm_model.pkl`                                    |
 | General (different feature sets) | `models/feature_sets/lgbm_model_{feature_set}.pkl`                                    |
 | General LOPO (leave-one-protein-out) | `models/lopo_models/lgbm_model_excluding_gene_{gene_id}.pkl`         |
-| Per-protein (random split)      | `models/per_protein_random_models/lgbm_model_{gene_id}.pkl`|
-| Per-protein LPosO (stratified by position)      | `models/per_protein_lposo_models/lgbm_model_{gene_id}.pkl` |
-| Per-protein LOPosO (leave-one-position-out)      | `models/per_protein_loposo_models/lgbm_model_gene_{gene_id}_excluding_pos_{position}.pkl` |
-| Per-protein LOVarO (leave-one-variant-out)      | `models/per_protein_lovaro_models/lgbm_model_gene_{gene_id}_excluding_variant_{mutation_id}.pkl` |
+| Per-protein (random split)      | `models/per_protein/random_split/lgbm_model_{gene_id}.pkl`|
+| Per-protein LPosO (stratified by position)      | `models/per_protein/lposo/lgbm_model_{gene_id}.pkl` |
+| Per-protein LOPosO (leave-one-position-out)      | `models/per_protein/loposo/lgbm_model_gene_{gene_id}_excluding_pos_{position}.pkl` |
+| Per-protein LOVarO (leave-one-variant-out)      | `models/per_protein/lovaro/lgbm_model_gene_{gene_id}_excluding_variant_{mutation_id}.pkl` |
+| Per-protein Split by SNV      | `models/per_protein/snv_split/lgbm_model_gene_{gene_id}_lnsnvo.pkl` |
 | Reduced feature set (only ESM-1v embeddings and mean DMS used)     | `models/reduced/lgbm_model.pkl` |
 | Zero-shot (without mean DMS)     | `models/zero_shot/lgbm_model.pkl` |
 
