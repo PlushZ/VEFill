@@ -75,11 +75,7 @@ If you prefer a traditional setup:
    ```bash
    pip install -r requirements.txt
    ```
-
----
-
-You can now run the model scripts using either environment.
-
+   
 ---
 
 ## Reproducibility
