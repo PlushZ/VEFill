@@ -1,4 +1,4 @@
-# VEFill: a model for accurate and generalizable deep mutation scanning score imputation across protein domains
+# VEFill: a model for accurate and generalizable deep mutational scanning score imputation across protein domains
 
 This repository contains code, data processing scripts, and training routines for predicting deep mutational scanning (DMS) scores from variant features using LightGBM-based regression model.
 
@@ -40,13 +40,48 @@ pg_restore -U youruser -d vefill vefill_backup.dump
 
 ---
 
-## Requirements
+## Installation
 
-Install dependencies:
+This project supports two ways to install dependencies: using **Poetry** (recommended for reproducibility) or using `pip` with a `requirements.txt`.
 
-```bash
-pip install -r requirements.txt
-```
+### Option 1: Using Poetry (recommended)
+
+Poetry ensures a consistent environment using a lockfile.
+
+1. Install Poetry (https://python-poetry.org/docs/#installation):  
+   ```bash
+   pip install poetry
+   ```
+2. Install dependencies **without** installing the project itself:
+   ```bash
+   poetry install --no-root
+   ```
+3. Activate the virtual environment (optional):
+   ```bash
+   poetry shell
+   ```
+
+> Note: This project uses `package-mode = false` in `pyproject.toml` to avoid packaging the codebase.
+
+### Option 2: Using pip and requirements.txt
+
+If you prefer a traditional setup:
+
+1. Create a virtual environment:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+You can now run preprocessing, training, and inference scripts using either environment.
+
 
 ---
 

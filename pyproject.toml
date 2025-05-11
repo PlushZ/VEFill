@@ -1,0 +1,31 @@
+[project]
+name = "vefill"
+version = "0.1.0"
+description = "Variant Effect Fill: predictive model for accurate and generalizable deep mutational scanning score imputation across protein domains"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+  { name = "PlushZ", email = "polpolunina@gmail.com" }
+]
+requires-python = ">=3.10"
+package-mode = false
+
+dependencies = [
+    "pandas>=2.2.3",
+    "numpy>=2.2.0",
+    "lightgbm>=4.5.0",
+    "scikit-learn>=1.6.0",
+    "scipy>=1.14.1",
+    "optuna>=4.1.0",
+    "joblib>=1.4.2",
+    "SQLAlchemy>=2.0.36",
+    "psycopg2-binary>=2.9.10",
+    "python-decouple>=3.8",
+    "torch>=2.5.1",
+    "fair-esm>=2.0.0",
+    "tqdm>=4.67.1"
+]
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
