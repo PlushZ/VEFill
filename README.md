@@ -52,30 +52,26 @@ Poetry ensures a consistent environment using a lockfile.
    ```bash
    pip install poetry
    ```
-2. Install dependencies **without** installing the project itself:
+2. Create the environment to install dependencies (**without** installing the project as a package):
    ```bash
    poetry install --no-root
    ```
 3. Activate the virtual environment:
    ```bash
-   poetry shell
+   source $(poetry env info --path)/bin/activate
    ```
 
 ### Option 2: Using pip and requirements.txt
 
-If you prefer a traditional setup:
+If you prefer a traditional `pip` setup:
 
-1. Create a virtual environment:
+Create a virtual environment and install dependencies:
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-2. Install dependencies:
-   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
    pip install -r requirements.txt
    ```
-   
+
 ---
 
 ## Reproducibility
