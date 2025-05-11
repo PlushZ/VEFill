@@ -42,7 +42,7 @@ pg_restore -U youruser -d vefill vefill_backup.dump
 
 ## Installation
 
-This project supports two ways to install dependencies: using **Poetry** (recommended for reproducibility) or using `pip` with a `requirements.txt`.
+This project supports two ways to install dependencies: using **Poetry** (recommended) or using `pip` with a `requirements.txt`.
 
 ### Option 1: Using Poetry (recommended)
 
@@ -56,12 +56,10 @@ Poetry ensures a consistent environment using a lockfile.
    ```bash
    poetry install --no-root
    ```
-3. Activate the virtual environment (optional):
+3. Activate the virtual environment:
    ```bash
    poetry shell
    ```
-
-> Note: This project uses `package-mode = false` in `pyproject.toml` to avoid packaging the codebase.
 
 ### Option 2: Using pip and requirements.txt
 
@@ -80,27 +78,7 @@ If you prefer a traditional setup:
 
 ---
 
-You can now run preprocessing, training, and inference scripts using either environment.
-
-
----
-
-## Pretrained models
-
-The following pretrained VEFill models are available at [Zenodo repository](https://zenodo.org/records/15329751?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImQyN2E5YTRlLWE0OWUtNDNjNC1hOGJhLTU1MTZjYTMyMDk4YyIsImRhdGEiOnt9LCJyYW5kb20iOiJmMTIwZDYyODBjMmE5M2Q5MmJiYmZhZWNkOWUyMTkzNiJ9.DXpvjkJd9-2njL3pTqcc1dcDu_Cz-XlBw3_zRcX6upLhcDJ2vxXimP667p5NWcxLQ2O7f616OrwKWxIhabeqGA) in the `models/` directory:
-
-| Model type                | File location                                              |
-|---------------------------|------------------------------------------------------------|
-| General             | `models/lgbm_model.pkl`                                    |
-| General (different feature sets) | `models/feature_sets/lgbm_model_{feature_set}.pkl`                                    |
-| General LOPO (leave-one-protein-out) | `models/lopo_models/lgbm_model_excluding_gene_{gene_id}.pkl`         |
-| Per-protein (random split)      | `models/per_protein/random_split/lgbm_model_{gene_id}.pkl`|
-| Per-protein LPosO (stratified by position)      | `models/per_protein/lposo/lgbm_model_{gene_id}.pkl` |
-| Per-protein LOPosO (leave-one-position-out)      | `models/per_protein/loposo/lgbm_model_gene_{gene_id}_excluding_pos_{position}.pkl` |
-| Per-protein LOVarO (leave-one-variant-out)      | `models/per_protein/lovaro/lgbm_model_gene_{gene_id}_excluding_variant_{mutation_id}.pkl` |
-| Per-protein Split by SNV      | `models/per_protein/snv_split/lgbm_model_gene_{gene_id}_lnsnvo.pkl` |
-| Reduced feature set (only ESM-1v embeddings and mean DMS used)     | `models/reduced/lgbm_model.pkl` |
-| Zero-shot (without mean DMS)     | `models/zero_shot/lgbm_model.pkl` |
+You can now run the model scripts using either environment.
 
 ---
 
@@ -127,6 +105,25 @@ To rerun the full pipeline:
    ```bash
    python scripts/run_inference.py
    ```
+
+---
+
+## Pretrained models
+
+The following pretrained VEFill models are available at [Zenodo repository](https://zenodo.org/records/15329751?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImQyN2E5YTRlLWE0OWUtNDNjNC1hOGJhLTU1MTZjYTMyMDk4YyIsImRhdGEiOnt9LCJyYW5kb20iOiJmMTIwZDYyODBjMmE5M2Q5MmJiYmZhZWNkOWUyMTkzNiJ9.DXpvjkJd9-2njL3pTqcc1dcDu_Cz-XlBw3_zRcX6upLhcDJ2vxXimP667p5NWcxLQ2O7f616OrwKWxIhabeqGA) in the `models/` directory:
+
+| Model type                | File location                                              |
+|---------------------------|------------------------------------------------------------|
+| General             | `models/lgbm_model.pkl`                                    |
+| General (different feature sets) | `models/feature_sets/lgbm_model_{feature_set}.pkl`                                    |
+| General LOPO (leave-one-protein-out) | `models/lopo_models/lgbm_model_excluding_gene_{gene_id}.pkl`         |
+| Per-protein (random split)      | `models/per_protein/random_split/lgbm_model_{gene_id}.pkl`|
+| Per-protein LPosO (stratified by position)      | `models/per_protein/lposo/lgbm_model_{gene_id}.pkl` |
+| Per-protein LOPosO (leave-one-position-out)      | `models/per_protein/loposo/lgbm_model_gene_{gene_id}_excluding_pos_{position}.pkl` |
+| Per-protein LOVarO (leave-one-variant-out)      | `models/per_protein/lovaro/lgbm_model_gene_{gene_id}_excluding_variant_{mutation_id}.pkl` |
+| Per-protein Split by SNV      | `models/per_protein/snv_split/lgbm_model_gene_{gene_id}_lnsnvo.pkl` |
+| Reduced feature set (only ESM-1v embeddings and mean DMS used)     | `models/reduced/lgbm_model.pkl` |
+| Zero-shot (without mean DMS)     | `models/zero_shot/lgbm_model.pkl` |
 
 ---
 
