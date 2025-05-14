@@ -23,13 +23,13 @@ This repository contains code, data processing scripts, and training routines fo
 
 ## Data access
 
-The processed datasets used in this study, including both *Domainome* and *non-Domainome* data, are available via the [Zenodo repository](https://zenodo.org/records/15329751?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImQyN2E5YTRlLWE0OWUtNDNjNC1hOGJhLTU1MTZjYTMyMDk4YyIsImRhdGEiOnt9LCJyYW5kb20iOiJmMTIwZDYyODBjMmE5M2Q5MmJiYmZhZWNkOWUyMTkzNiJ9.DXpvjkJd9-2njL3pTqcc1dcDu_Cz-XlBw3_zRcX6upLhcDJ2vxXimP667p5NWcxLQ2O7f616OrwKWxIhabeqGA) in the `data/` directory. These datasets contain mutation-level features and target labels used to train and evaluate the models. They were generated using the preprocessing pipeline implemented in this repository (`src/preprocess_data.py`), which fetches raw data from a SQL database and applies transformations such as one-hot encoding, numerical standardization, and embedding flattening.
+The processed datasets used in this study, including both *Domainome* and *non-Domainome* data, are available via the [Zenodo repository](10.5281/zenodo.15329751) in the `data/` directory. These datasets contain mutation-level features and target labels used to train and evaluate the models. They were generated using the preprocessing pipeline implemented in this repository (`src/preprocess_data.py`), which fetches raw data from a SQL database and applies transformations such as one-hot encoding, numerical standardization, and embedding flattening.
 
 For demonstration purposes, we also provide a lightweight version of the *Domainome* dataset: `data/example_domainome_preprocessed.csv`. This example file contains a small but representative subset of the full dataset, including 3 distinct `gene_id` values, each with 3 unique `position`s, and 3 mutations per position (total of ~27 rows). It is useful for quickly inspecting the data structure or testing pipeline components without requiring the full heavy dataset.
 
 ### Restore the database
 
-A PostgreSQL backup file of the used dataset is available at [Zenodo repository](https://zenodo.org/records/15329751?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImQyN2E5YTRlLWE0OWUtNDNjNC1hOGJhLTU1MTZjYTMyMDk4YyIsImRhdGEiOnt9LCJyYW5kb20iOiJmMTIwZDYyODBjMmE5M2Q5MmJiYmZhZWNkOWUyMTkzNiJ9.DXpvjkJd9-2njL3pTqcc1dcDu_Cz-XlBw3_zRcX6upLhcDJ2vxXimP667p5NWcxLQ2O7f616OrwKWxIhabeqGA) in the `db/` directory. It can be restored using `pg_restore` and includes all tables used to train VEFill.
+A PostgreSQL backup file of the used dataset is available at [Zenodo repository](10.5281/zenodo.15329751) in the `db/` directory. It can be restored using `pg_restore` and includes all tables used to train VEFill.
 
 To restore:
 
@@ -102,7 +102,7 @@ To rerun the full pipeline:
 
 ## Pretrained models
 
-The following pretrained VEFill models are available at [Zenodo repository](https://zenodo.org/records/15329751?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImQyN2E5YTRlLWE0OWUtNDNjNC1hOGJhLTU1MTZjYTMyMDk4YyIsImRhdGEiOnt9LCJyYW5kb20iOiJmMTIwZDYyODBjMmE5M2Q5MmJiYmZhZWNkOWUyMTkzNiJ9.DXpvjkJd9-2njL3pTqcc1dcDu_Cz-XlBw3_zRcX6upLhcDJ2vxXimP667p5NWcxLQ2O7f616OrwKWxIhabeqGA) in the `models/` directory:
+The following pretrained VEFill models are available at [Zenodo repository](10.5281/zenodo.15329751) in the `models/` directory:
 
 | Model type                | File location                                              |
 |---------------------------|------------------------------------------------------------|
