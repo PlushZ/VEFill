@@ -114,7 +114,7 @@ The following pretrained VEFill models are available at [10.5281/zenodo.15329750
 | Per-protein LOPosO (leave-one-position-out)      | `models/per_protein/loposo/lgbm_model_gene_{gene_id}_excluding_pos_{position}.pkl` |
 | Per-protein LOVarO (leave-one-variant-out)      | `models/per_protein/lovaro/lgbm_model_gene_{gene_id}_excluding_variant_{mutation_id}.pkl` |
 | Per-protein Split by SNV      | `models/per_protein/snv_split/lgbm_model_gene_{gene_id}_lnsnvo.pkl` |
-| Reduced feature set (only ESM-1v embeddings and mean DMS used)     | `models/reduced/lgbm_model.pkl` |
+| Reduced feature set (140- and 521-domain models)     | `models/reduced/lgbm_{num_domains}_{feature_set}.pkl` |
 | Zero-shot (without mean DMS)     | `models/zero_shot/lgbm_model.pkl` |
 
 ---
