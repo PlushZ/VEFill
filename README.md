@@ -1,6 +1,6 @@
 # VEFill: a model for accurate and generalizable deep mutational scanning score imputation across protein domains
 
-This repository contains code, data processing scripts, and training routines for predicting deep mutational scanning (DMS) scores from variant features using LightGBM-based regression model.
+This repository contains code, data processing scripts, and training routines for predicting deep mutational scanning (DMS) scores from variant features using LightGBM-based regression model. See our paper [Polunina et al. 2025](https://www.biorxiv.org/content/10.1101/2025.05.14.653991v1).
 
 ---
 
