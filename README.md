@@ -1,6 +1,6 @@
 # VEFill: a model for accurate and generalizable deep mutational scanning score imputation across protein domains
 
-This repository contains code, data processing scripts, and training routines for predicting deep mutational scanning (DMS) scores from variant features using LightGBM-based regression model. See our paper [Polunina et al. 2025](https://www.biorxiv.org/content/10.1101/2025.05.14.653991).
+This repository contains code, data processing scripts, and training routines for predicting deep mutational scanning (DMS) scores from variant features using LightGBM-based regression model.
 
 ---
 
@@ -15,8 +15,13 @@ This repository contains code, data processing scripts, and training routines fo
 | └─ `schema/`        | SQL schema definitions                                                      |
 | └─ `scripts/`       | Scripts to populate DB with computed embeddings                             |
 | `models/`           | Pretrained LightGBM model and best hyperparameters                          |
-| `results/`          | Model outputs: predictions and evaluation metrics                           |
-| `scripts/`          | Entry-point scripts for running preprocessing, training, and inference      |
+| `results/`          | Generated outputs (benchmark metrics, figures, completeness and noise summaries) |
+| └─ `benchmarking/`  | Benchmarking results  |
+| └─ `completeness/`  | DMS dataset completeness summaries |
+| └─ `noise_simulation/` | Per-gene noise ceiling estimates |
+| `scripts/`          | Entry-point scripts and analysis workflows (preprocessing, benchmarking, dataset characterization) |
+| └─ `benchmarking/`  | Benchmarking scripts and Jupyter notebooks for model comparison |
+| └─ `analysis/`      | Dataset-level analyses (DMS completeness, noise ceiling estimation) |
 | `src/`              | Core logic: training, preprocessing, model utils, evaluation modules        |
 
 ---
