@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 14.17 (Ubuntu 14.17-0ubuntu0.22.04.1)
--- Dumped by pg_dump version 14.17 (Ubuntu 14.17-0ubuntu0.22.04.1)
+-- Dumped from database version 14.19 (Ubuntu 14.19-0ubuntu0.22.04.1)
+-- Dumped by pg_dump version 14.19 (Ubuntu 14.19-0ubuntu0.22.04.1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -232,24 +232,8 @@ CREATE TABLE public.gene_urn (
     urn_mavedb text,
     gene_name text,
     target_seq text,
-    pearson_dms_blosum62 double precision,
-    spearman_dms_blosum62 double precision,
-    pearson_dms_grantham double precision,
-    spearman_dms_grantham double precision,
-    pearson_dms_grantham_disruptive double precision,
-    spearman_dms_grantham_disruptive double precision,
-    pearson_dms_grantham_tolerant double precision,
-    spearman_dms_grantham_tolerant double precision,
-    pearson_dms_blosum62_unfavorable double precision,
-    spearman_dms_blosum62_unfavorable double precision,
-    pearson_dms_blosum62_favorable double precision,
-    spearman_dms_blosum62_favorable double precision,
     uniprot_id text,
     ensembl_id text,
-    pearson_dms_eve double precision,
-    spearman_dms_eve double precision,
-    pearson_dms_alphamissense double precision,
-    spearman_dms_alphamissense double precision,
     uniprot_target_seq_offset integer,
     assay_type integer,
     target_aa_seq text
@@ -472,7 +456,8 @@ CREATE TABLE public.substitution_matrix (
     str double precision,
     blosum62_minmax_scaled text,
     pam250_minmax_scaled text,
-    grantham double precision
+    grantham double precision,
+    blosum100 double precision
 );
 
 
@@ -589,6 +574,14 @@ ALTER TABLE ONLY public.dms
 
 
 --
+-- Name: dms_range dms_range_gene_urn_id_unique; Type: CONSTRAINT; Schema: public; Owner: polina
+--
+
+ALTER TABLE ONLY public.dms_range
+    ADD CONSTRAINT dms_range_gene_urn_id_unique UNIQUE (gene_urn_id);
+
+
+--
 -- Name: dms_range dms_range_pkey; Type: CONSTRAINT; Schema: public; Owner: polina
 --
 
@@ -674,6 +667,14 @@ ALTER TABLE ONLY public.species
 
 ALTER TABLE ONLY public.substitution_matrix
     ADD CONSTRAINT substitution_matrix_pkey PRIMARY KEY (amino_acid_x, amino_acid_y);
+
+
+--
+-- Name: esm1v_embeddings unique_mutation_type; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.esm1v_embeddings
+    ADD CONSTRAINT unique_mutation_type UNIQUE (mutation_id, embedding_type);
 
 
 --
