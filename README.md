@@ -111,9 +111,9 @@ The following pretrained VEFill models are available at [10.5281/zenodo.15329750
 
 | Model type                | File location                                              |
 |---------------------------|------------------------------------------------------------|
-| General             | `models/lgbm_model.pkl`                                    |
-| General (different feature sets) | `models/feature_sets/lgbm_model_{feature_set}.pkl`                                    |
-| General LOPO (leave-one-protein-out) | `models/lopo_models/lgbm_model_excluding_gene_{gene_id}.pkl`         |
+| General cross-protein             | `models/lgbm_model.pkl`                                    |
+| General cross-protein (different feature sets) | `models/feature_sets/lgbm_model_{feature_set}.pkl`                                    |
+| General cross-protein LOPO (leave-one-protein-out) | `models/lopo_models/lgbm_model_excluding_gene_{gene_id}.pkl`         |
 | Per-protein (random split)      | `models/per_protein/random_split/lgbm_model_{gene_id}.pkl`|
 | Per-protein LPosO (stratified by position)      | `models/per_protein/lposo/lgbm_model_{gene_id}.pkl` |
 | Per-protein LOPosO (leave-one-position-out)      | `models/per_protein/loposo/lgbm_model_gene_{gene_id}_excluding_pos_{position}.pkl` |
